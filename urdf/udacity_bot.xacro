@@ -1,7 +1,8 @@
 <?xml version='1.0'?>
 
 <robot name="udacity_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find udacity_bot)/urdf/udacity_bot.gazebo" />
+  <xacro:include filename="$(find slam_project)/urdf/udacity_bot.gazebo" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -167,7 +168,7 @@
 	<visual>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-        <box size="0.05 0.05 0.05"/>
+	<mesh filename="package://sweeping_bot/meshes/kinect.dae"/>
       </geometry>
     </visual>
   </link>
