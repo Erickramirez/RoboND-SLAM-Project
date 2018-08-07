@@ -141,16 +141,13 @@
     <dynamics damping="1.0" friction="1.0"/>
   </joint>
   
-  <joint type="fixed" name="camera_joint">
-    <origin xyz="0.2 0 0" rpy="0 0 0"/>
-    <child link="camera"/>
-    <parent link="chassis"/>
-  </joint>
+ 
   
   
-  <link name='camera'>
+  <link name='camera_rgb_frame'>
+   <pose>0 0 0.1 0 0 0</pose>
     <inertial>
-      <mass value="0.1"/>
+      <mass value="0.564"/>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <inertia
           ixx="1e-6" ixy="0" ixz="0"
@@ -173,17 +170,41 @@
     </visual>
   </link>
   
-  
-  
-  
-  <joint type="fixed" name="hokuyo_joint">
-    <origin xyz="0.15 0 0.1" rpy="0 0 0"/>
-    <child link="hokuyo"/>
+ <joint type="fixed" name="camera_rgb_frame_joint">
+    <origin xyz="0.2 0 0" rpy="0 0 0"/>
+    <child link="camera_rgb_frame"/>
     <parent link="chassis"/>
   </joint>
   
+
+  <link name="camera_rgb_optical_frame"/>
+  <joint name="camera_rgb_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.571 0 -1.571"/>
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_rgb_optical_frame"/>
+  </joint>
+
+
+  <link name="camera_depth_frame"/>
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+
+
+  <link name="camera_depth_optical_frame"/>
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.571 0 -1.571"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_depth_optical_frame"/>
+  </joint>
+  
+  
+  
   
   <link name='hokuyo'>
+  <pose>0 0 0.1 0 0 0</pose>
     <inertial>
       <mass value="0.1"/>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
@@ -208,5 +229,10 @@
     </visual>
   </link>
   
+  <joint type="fixed" name="hokuyo_joint">
+    <origin xyz="0.15 0 0.1" rpy="0 0 0"/>
+    <child link="hokuyo"/>
+    <parent link="chassis"/>
+  </joint>
 
 </robot>

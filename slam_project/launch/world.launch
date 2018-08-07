@@ -10,9 +10,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="camera" default="camera" />
-  <arg name="rgb_frame_id"   default="camera_rgb_optical_frame" />
-  <arg name="depth_frame_id" default="camera_depth_optical_frame" />
+
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find slam_project)/worlds/kitchen_dining.world"/>
@@ -22,11 +20,12 @@
     <arg name="headless" value="$(arg headless)"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
-output="screen" args="-urdf -param robot_description -model slam_project"/>
 
-
-<!--launch rviz-->
-<node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
+  <!--spawn a robot in gazebo world-->
+  <node name="urdf_spawner" pkg="gazebo_ros"
+    type="spawn_model"
+    respawn="false" 
+    output="screen"
+    args="-urdf -param robot_description -model rover"/>
 
 </launch>
