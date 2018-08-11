@@ -1,7 +1,7 @@
 # RoboND-SLAM-Project
 It creates a 2D occupancy grid and 3D octomap from a provided simulated environment.
 
-#How to run it
+# How to run it
 * working enviroment used: /home/workspace/catkin_ws
 
 ## Project Setup
