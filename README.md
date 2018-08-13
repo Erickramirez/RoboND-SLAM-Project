@@ -29,8 +29,13 @@ source ~/catkin_ws/devel/setup.bash
 ## To run the program:
 ```sh
 $ cd ~/catkin_ws
-$ roslaunch sweeping_bot sweeping_world.launch
-$ roslaunch sweeping_bot teleop.launch
-$ roslaunch sweeping_bot mapping.launch
-$ roslaunch sweeping_bot rviz.launch
+$ roslaunch slam_project world.launch
+$ roslaunch slam_project teleop.launch
+$ roslaunch slam_project mapping.launch
+$ roslaunch slam_project rviz.launch
 ```
+or running only:
+```
+./RoboND-SLAM-Project/slam_project.sh
+```
+

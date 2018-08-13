@@ -144,7 +144,7 @@
  
   
   
-  <link name='camera_rgb_frame'>
+  <link name='camera_rgb'>
    <pose>0 0 0.1 0 0 0</pose>
     <inertial>
       <mass value="0.564"/>
@@ -170,9 +170,9 @@
     </visual>
   </link>
   
- <joint type="fixed" name="camera_rgb_frame_joint">
+ <joint type="fixed" name="camera_rgb_joint">
     <origin xyz="0.2 0 0" rpy="0 0 0"/>
-    <child link="camera_rgb_frame"/>
+    <child link="camera_rgb"/>
     <parent link="chassis"/>
   </joint>
   
@@ -180,23 +180,23 @@
   <link name="camera_rgb_optical_frame"/>
   <joint name="camera_rgb_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.571 0 -1.571"/>
-    <parent link="camera_rgb_frame"/>
+    <parent link="camera_rgb"/>
     <child link="camera_rgb_optical_frame"/>
   </joint>
 
 
-  <link name="camera_depth_frame"/>
+  <link name="camera_depth"/>
   <joint name="camera_depth_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_depth_frame"/>
+    <parent link="camera_rgb"/>
+    <child link="camera_depth"/>
   </joint>
 
 
   <link name="camera_depth_optical_frame"/>
   <joint name="camera_depth_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.571 0 -1.571"/>
-    <parent link="camera_depth_frame"/>
+    <parent link="camera_depth"/>
     <child link="camera_depth_optical_frame"/>
   </joint>
   
