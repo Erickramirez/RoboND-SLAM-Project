@@ -10,23 +10,21 @@ First, downloads the repo to your Computer:
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/Erickramirez/RoboND-SLAM-Project.git
 ```
-```sh
-$ $ cd ~/catkin_ws/
-$ catkin_make
-source ~/catkin_ws/devel/setup.bash
-```
 
 ## Build the project:
 ```sh
 $ cd ~/catkin_ws
 $ catkin_make
 ```
+
+
+## To run the program:
+### Option 1
+
 on each terminal run the following:
 ```
 source ~/catkin_ws/devel/setup.bash
 ```
-
-## To run the program:
 ```sh
 $ cd ~/catkin_ws
 $ roslaunch slam_project world.launch
@@ -34,7 +32,8 @@ $ roslaunch slam_project teleop.launch
 $ roslaunch slam_project mapping.launch
 $ roslaunch slam_project rviz.launch
 ```
-or running only:
+### Option 2
+Run only the following:
 ```
 ./RoboND-SLAM-Project/slam_project.sh
 ```
